@@ -29,7 +29,6 @@ def main():
             traceroute(destination)
         elif choice == "5":
             arp_table_view()
-            speed_test()
         elif choice == "6":
             print("Exiting Networking Tools. Goodbye!")
             break
