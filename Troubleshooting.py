@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from NetFunctions import ping_host, dns_lookup, check_port
+from NetFunctions import ping_host, dns_lookup, check_port, traceroute, arp_table_view
 
 def main():
     print("Welcome to Networking Tools!\n")
@@ -8,9 +8,11 @@ def main():
         print("1. Ping a host")
         print("2. Perform a DNS lookup")
         print("3. Check port status")
-        print("4. Exit")
+        print("4. Traceroute")
+        print("5. View ARP Table")
+        print("6. Exit")
 
-        choice = input("Enter your choice (1/2/3/4): ")
+        choice = input("Enter your choice (1-6): ")
 
         if choice == "1":
             host = input("Enter the host to ping: ")
@@ -23,6 +25,12 @@ def main():
             port = int(input("Enter the port to check: "))
             check_port(host, port)
         elif choice == "4":
+            destination = input("Enter the destination for traceroute: ")
+            traceroute(destination)
+        elif choice == "5":
+            arp_table_view()
+            speed_test()
+        elif choice == "6":
             print("Exiting Networking Tools. Goodbye!")
             break
         else:
